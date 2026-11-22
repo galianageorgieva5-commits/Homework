@@ -1,0 +1,46 @@
+    static void Main(string[] args)
+    {
+        // 1. Въвеждане на списъка и останалите входни данни
+        List<int> numbers = Console.ReadLine()
+            .Split()
+            .Select(int.Parse)
+            .ToList();
+
+        Console.WriteLine($"Начален списък: {string.Join(" ", numbers)}");
+        int numberToAdd = int.Parse(Console.ReadLine());
+
+        // 2. Добавяне на числото в края на списъка
+        numbers.Add(numberToAdd);
+        Console.WriteLine($"След Add: {string.Join(" ", numbers)}");
+
+        // 3. Вмъкване на същото число в началото (на индекс 0)
+        numbers.Insert(0, numberToAdd);
+        Console.WriteLine($"След Insert: {string.Join(" ", numbers)}");
+        // 4. Премахване по стойност чрез Remove()
+        if (numbers.Remove(numberToRemove))
+        {
+            Console.WriteLine($"След Remove: {string.Join(" ", numbers)}");
+        }
+        else
+        {
+            Console.WriteLine("Числото липсва в списъка.");
+        }
+
+        // 5. Проверка за валиден индекс и премахване чрез RemoveAt()
+        if (indexToRemove >= 0 && indexToRemove < numbers.Count)
+        {
+            numbers.RemoveAt(indexToRemove);
+            Console.WriteLine($"След RemoveAt: {string.Join(" ", numbers)}");
+        }
+        else
+        {
+            Console.WriteLine("Невалиден индекс.");
+            // 6. Извеждане на броя елементи и обхождане с цикъл for
+            Console.WriteLine($"Краен брой елементи: {numbers.Count}");
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                Console.WriteLine($"{i}. {numbers[i]}");
+            }
+        }
+    }
+}
