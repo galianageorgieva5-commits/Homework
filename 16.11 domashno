@@ -1,0 +1,45 @@
+Console.WriteLine(“Vuvedete chisla:”);
+        string input = Console.ReadLine();
+
+        // 1. Razdelqme vhodniq tekst
+        List<string> words = input.Split(‘ ‘).ToList();
+
+        // 2. Suzdavame prazen chislov spisuk
+        List<int> numbers = new List<int>();
+
+        foreach (string word in words)
+        {
+            int num = int.Parse(word);
+            numbers.Add(num);
+        }
+
+        // 3. Izvezhdame vsichki chisla na otdelen red
+        Console.WriteLine(“Vsichki chisla:”);
+foreach (int num in numbers)
+        {
+            Console.WriteLine(num);
+        }
+
+        // 4. Izvezhdame broq na vsichki chisla
+        Console.WriteLine(“Broi na vsichki chisla: “ + numbers.Count);
+
+        // 5. Suzдаваме nov spisuk s polozhitelni, chetni i unikalni chisla
+        List<int> filtered = new List<int>();
+
+        foreach (int num in numbers)
+        {
+            if (num > 0 && num % 2 == 0 && !filtered.Contains(num))
+            {
+                filtered.Add(num);
+            }
+        }
+
+        // 6. Izvezhdame filtriranite chisla na edin red
+        Console.WriteLine(“Filtrirani chisla:”);
+        Console.WriteLine(string.Join(“ “, filtered));
+
+        // 7. Izvezhdame broq i sumata na filtriranite chisla
+        Console.WriteLine(“Broi: “ + filtered.Count);
+        Console.WriteLine(“Suma: “ + filtered.Sum());
+    }
+}
